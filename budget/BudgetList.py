@@ -1,4 +1,5 @@
 from . import Expense
+import matplotlib.pyplot as plt
 
 class BudgetList():
     def __init__(self, budget):
@@ -26,6 +27,14 @@ def main():
     for expense in expenses.list:
         myBudgetList.append(expense.amount)
     print('The count of all expenses: ' + str(len(myBudgetList)))
+
+fig, ax = plt.subplots()
+labels = ['Expenses','Overages','Budget']
+values = [sum_expenses, sum_overages, budget]
+ax.bar(labels,values)
+color =['green','red','blue']
+ax.set_title('Your total expense vs. total budget')
+plt.show()
 
 if __name__ == '__main__':
     main()
